@@ -5,6 +5,8 @@ python duration_string.py
 import doctest
 import re
 
+__version__ = "1.0.0"
+
 TIMING_MAP = {"s": 1, "m": 60, "h": 60 * 60, "d": 24 * 60 * 60}
 
 
