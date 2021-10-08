@@ -2,13 +2,13 @@ from setuptools import setup
 
 setup(
     name='durationstring',
-    version='0.0.1',    
-    description='A example Python package',
+    version='1.0',    
+    description='Get readable time in seconds.',
     url='https://github.com/geonyoro/durationstring',
     author='George Nyoro',
     author_email='geonyoro@gmail.com',
     license='Apache',
-    packages=['durationstring'],
+    py_modules=['durationstring'],
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',
@@ -22,4 +22,4 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-
+)
