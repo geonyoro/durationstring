@@ -14,7 +14,6 @@ Failing to provide a converter will default to seconds.
 Examples
 --------
 ```python
-
     import duration_string
     import time
 
