@@ -1,9 +1,14 @@
 from setuptools import setup
+import os
+
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as wfile:
+    README = wfile.read()
 
 setup(
     name="durationstring",
     version=__import__("durationstring").__version__,
     description="Get readable time in seconds.",
+    long_description=README,
     url="https://github.com/geonyoro/durationstring",
     author="George Nyoro",
     author_email="geonyoro@gmail.com",
