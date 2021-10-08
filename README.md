@@ -13,7 +13,7 @@ Failing to provide a converter will default to seconds.
 
 Examples
 --------
-.. code-block:: python
+```python
 
     import duration_string
     import time
