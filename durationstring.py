@@ -5,12 +5,8 @@ python duration_string.py
 import doctest
 import re
 
-TIMING_MAP = {
-    "s": 1,
-    "m": 60,
-    "h": 60*60,
-    "d": 24 * 60 * 60
-}
+TIMING_MAP = {"s": 1, "m": 60, "h": 60 * 60, "d": 24 * 60 * 60}
+
 
 def get(string):
     """
@@ -36,7 +32,7 @@ def get(string):
             raise ValueError("Invalid duration: %s" % string)
 
     string = re.sub(r"\s", "", string)
-    value = re.sub("[^\d\.]", "", string)
+    value = re.sub(r"[^\d\.]", "", string)
     type_ = string.replace(value, "")
     multiplier = TIMING_MAP.get(type_, TIMING_MAP["s"])
     return int(multiplier * float(value))
