@@ -5,7 +5,7 @@ python duration_string.py
 import doctest
 import re
 
-__version__ = "1.2"
+__version__ = "1.2.2"
 
 TIMING_MAP = {"s": 1, "m": 60, "h": 60 * 60, "d": 24 * 60 * 60}
 
@@ -24,6 +24,14 @@ def is_valid(string):
     False
     >>> is_valid('2s')
     True
+    >>> is_valid(2)
+    True
+    >>> is_valid(' 2 ')
+    True
+    >>> is_valid(' 2h ')
+    True
+    >>> is_valid(' 2 h ')
+    True
     """
     val, _ = is_valid_w_reason(string)
     return val
@@ -35,6 +43,9 @@ def is_valid_w_reason(string):
 
     if not isinstance(string, str) and not isinstance(string, int):
         return False, "Invalid duration: %s" % string
+
+    if isinstance(string, int):
+        string = str(string)
 
     _, time_string = separate_time_string(string)
     if time_string and time_string not in TIMING_MAP:
