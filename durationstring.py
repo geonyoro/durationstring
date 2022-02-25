@@ -5,7 +5,7 @@ python duration_string.py
 import doctest
 import re
 
-__version__ = "1.2.2"
+__version__ = "1.2.3"
 
 TIMING_MAP = {"s": 1, "m": 60, "h": 60 * 60, "d": 24 * 60 * 60}
 
@@ -59,6 +59,9 @@ def is_valid_w_reason(string):
 
 
 def separate_time_string(string):
+    if isinstance(string, int):
+        string = str(string)
+
     string = re.sub(r"\s", "", string)
     time_value = re.sub(r"[^\d\.]", "", string)
     time_string = string.replace(time_value, "")
@@ -88,6 +91,8 @@ def get(string):
     >>> get('0.5m')
     30
     >>> get('2')
+    2
+    >>> get(2)
     2
     """
     time_value, time_string = get_valid_time_parts(string)
