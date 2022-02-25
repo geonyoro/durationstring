@@ -20,3 +20,9 @@ Examples
     import duration_string
     import time
     time.sleep(duration_string.get("2m"))
+    duration_string.is_valid("2f") # raises ValueError
+
+
+Tests
+-----
+These are run using docstrings.
